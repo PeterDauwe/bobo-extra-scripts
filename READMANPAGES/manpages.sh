@@ -12,6 +12,7 @@ case "$choice" in
 	   ;;
 	Random)
 	   pdf=$(find /usr/share/man/man1 -type f | shuf | head -1 )
+	   #pdf=$(find /usr/share/man/man1 -type f | shuf |head -1 | awk -F '/' '/1/ {print $6}' | sed 's/.gz$//g')
 	   ;;
 
     Search)
@@ -19,3 +20,8 @@ case "$choice" in
        ;;
 esac
 man -t $pdf | ps2pdf - - | zathura -
+
+
+
+
+
